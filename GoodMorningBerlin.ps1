@@ -84,7 +84,7 @@ function start_PROGRAMM() {
     wait_till_keepass_open
 
     $PROGRAM_NAME_running = Get-Process PROGRAM_NAME -ErrorAction SilentlyContinue
-    if (-Not $notes_running) {
+    if (-Not $PROGRAM_NAME_running) {
         Start-Process "X:\PATH\to\PROGRAM_NAME.exe"
     
         while(-Not $wshell.AppActivate('PROGRAM TITLE')) {
