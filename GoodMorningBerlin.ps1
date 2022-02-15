@@ -23,7 +23,7 @@ $wshell = New-Object -ComObject wscript.shell;
 # used to check if this is first start. you may not want to run some things on restart.
 function is_first_start()
 {
-    $LogonEvents = Get-WinEvent -FilterHashTable @{ LogName = "System"; StartTime = (Get-Date).AddDays(-1); ID = 7001 }
+    $LogonEvents = Get-WinEvent -FilterHashTable @{ LogName = "System"; StartTime = (Get-Date -Hour 0 -Minute 0); ID = 7001 }
     if($LogonEvents.length -eq 1)
     {
         return $true
